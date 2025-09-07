@@ -1,0 +1,19 @@
+[project]
+name = "qax"
+version = "0.1.0"
+description = "High-Performance Quantum System Simulation Library using JAX"
+authors = [
+    { name = "Ryo Maekura", email = "ryomaekura@g.ecc.u-tokyo.ac.jp" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "numpy>=2.3.2",
+    "scipy>=1.16.1",
+    "simpy>=4.1.1",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
