@@ -158,14 +158,15 @@ class TestBosonicOperators:
         assert jnp.allclose(n.data, n_computed.data, atol=1e-6)
 
     def test_commutation_relation(self):
-        """Test [a, a†] = I."""
+        """Test [a, a†] = I (with truncation effects at the boundary)."""
         dim = 5
         a = operators.annihilation(dim)
         a_dag = operators.creation(dim)
-        identity = operators.identity(dim)
+        expected = jnp.eye(dim, dtype=jnp.complex64)
+        expected = expected.at[dim - 1, dim - 1].set(1 - dim)
 
         commutator = a @ a_dag - a_dag @ a
-        assert jnp.allclose(commutator.data, identity.data, atol=1e-6)
+        assert jnp.allclose(commutator.data, expected, atol=1e-6)
 
 
 class TestQuadratureOperators:
@@ -190,8 +191,9 @@ class TestQuadratureOperators:
         p = operators.momentum(dim)
 
         commutator = x @ p - p @ x
-        expected = 1j * operators.identity(dim)
-        assert jnp.allclose(commutator.data, expected.data, atol=1e-4)
+        expected = 1j * jnp.eye(dim, dtype=jnp.complex64)
+        expected = expected.at[dim - 1, dim - 1].set(1j * (1 - dim))
+        assert jnp.allclose(commutator.data, expected, atol=1e-4)
 
 
 class TestDisplacementOperator:
