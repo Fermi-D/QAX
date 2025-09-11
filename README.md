@@ -56,7 +56,7 @@ import jax.numpy as jnp
 
 Comprehensive tutorials are available in the `examples/` directory:
 - Basic quantum state manipulation
-- Time evolution simulations
+- Quantum dynamics simulations
 - Quantum control optimization
 - Circuit construction and simulation
 
@@ -65,7 +65,7 @@ Comprehensive tutorials are available in the `examples/` directory:
 Full documentation is available at [GitHub Pages](https://fermi-d.github.io/QAX/) (coming soon).
 
 ## Comparison to Other Libraries
-
+<!--
 | Feature | QAX | Qiskit | QuTiP | PennyLane | Dynamiqs | CUDA-Q |
 |---------|-----|---------|-------|-----------|----------|---------|
 | JAX Backend | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ |
@@ -77,7 +77,7 @@ Full documentation is available at [GitHub Pages](https://fermi-d.github.io/QAX/
 | Open Systems | ✅ | Limited | ✅ | ❌ | ✅ | ❌ |
 | GPU Acceleration | Native | Limited | ❌ | Limited | Native | Native |
 | C++ Backend | ❌ | ✅ | Partial | ❌ | ❌ | ✅ |
-
+-->
 ## Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
