@@ -21,7 +21,7 @@ QAX provides efficient tools for simulating quantum systems including:
 - Quantum circuit simulation
 """
 
-__version__ = "0.1.0"
+__version__ = "0.0.1"
 
 # Core quantum objects
 from qax.core import Ket, Bra, Operator

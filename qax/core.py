@@ -29,7 +29,7 @@ class Ket:
     data: Array[Complex, "n 1"]
 
     def __init__(
-        self, array: Union[Array[Complex, "n 1"], Array[Complex, "n"], np.ndarray]
+        self, array: Union[Array[Complex, "(n, 1)"], Array[Complex, "n"], np.ndarray]
     ) -> None:
         """
         Initializes the Ket vector.

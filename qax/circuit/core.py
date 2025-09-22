@@ -15,8 +15,40 @@
 from __future__ import annotations
 
 '''
-class QuantumCircuit:
-    def __init__(self,
+class StateVectorCircuit:
+    """
+
+    """
+    def __init__(self, input_states: Ket) -> None:
+        self.input_states = input_states
+
+    def add(self, gate: Gate) -> None:
+        """
+        Adds a quantum gate to the circuit.
+
+        Args:
+            gate (Gate): The quantum gate to add.
+        """
+        self.states = Ket(jnp.dot(gate.data, self.input_states.data))
+
+    def run(self) -> Ket:
+        """
+        Runs the quantum circuit and returns the final state.
+
+        Returns:
+            Ket: The final quantum state after applying all gates.
+        """
+        return self.states
+
+class DensityMatrixCircuit:
+    """
+    Represents a quantum circuit using density matrices.
+
+    """
+    def __init__(self, input_states: jnp.ndarray) -> None:
+        self.input_states = input_states
+
+    def apply(self, superoperator: jnp.ndarray) -> None:
 
 class Gate(Operator):
     def __init__(self, name: str, matrix: jax.Array | np.ndarray):
@@ -35,7 +67,7 @@ class Gate(Operator):
         return f"Gate(name='{self.name}', shape={self.shape}, dtype={self.dtype})"
 
 class Measurement:
-    def __init__(self, ):
+    def __init__(self, operator: Operator):
         """
 
         """
